@@ -41,7 +41,7 @@ export default StyleSheet.create({
   },
   dayTextDisabled: {
     fontSize: 16,
-    color: 'rgba(255, 255, 255, 0.54)',
+    color: 'rgba(0, 0, 0, 0.2)',
     textAlign: 'center'
   }
 });

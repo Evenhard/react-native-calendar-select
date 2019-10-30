@@ -62,9 +62,9 @@ export default class Day extends Component {
     } = this.props;
     let text = date ? date.date() : '';
     let mainColor = {color: color.mainColor};
-    let subColor = {color: color.subColor};
+    let subColor = {color: 'rgba(0, 0, 0, 0.9)'};
     let mainBack = {backgroundColor: color.mainColor};
-    let subBack = {backgroundColor: color.subColor};
+    let subBack = {backgroundColor: color.mainColor};
     return (
       <View
         style={[
@@ -77,9 +77,9 @@ export default class Day extends Component {
         {this.isValid ?
           <TouchableHighlight
             style={[styles.day, this.isToday && styles.today, this.isFocus && subBack]}
-            underlayColor="rgba(255, 255, 255, 0.35)"
+            underlayColor="rgba(0, 0, 0, 0.35)"
             onPress={this._chooseDay}>
-            <Text style={[styles.dayText, subColor, this.isFocus && mainColor]}>{text}</Text>
+            <Text style={[styles.dayText, subColor, this.isFocus && {color: '#fff'}]}>{text}</Text>
           </TouchableHighlight> :
           <View style={[styles.day, this.isToday && styles.today]}>
             <Text style={styles.dayTextDisabled}>{text}</Text>

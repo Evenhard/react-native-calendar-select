@@ -17,8 +17,8 @@ export default class calendar extends Component {
     super(props);
     this.calendar = null;
     this.state = {
-      startDate: new Date(2017, 7, 12),
-      endDate: new Date(2017, 8, 23)
+      startDate: null,
+      endDate: null
     };
     this.openCalendar = this.openCalendar.bind(this);
     this.confirmDate = this.confirmDate.bind(this);
@@ -53,13 +53,13 @@ export default class calendar extends Component {
     };
     // optional property, too.
     let color = {
-      mainColor: '#138691'
+      mainColor: '#19AA90'
     };
     const {
       startDate,
       endDate
     } = this.state;
-    let text = startDate && endDate ? startDate.toLocaleDateString() + '  /  ' + endDate.toLocaleDateString() :
+    let text = startDate && endDate ? startDate + '  /  ' + endDate :
       'Please select a period';
     return (
       <View style={styles.container}>
@@ -78,10 +78,8 @@ export default class calendar extends Component {
           color={color}
           ref={(calendar) => {this.calendar = calendar;}}
           format="YYYYMMDD"
-          minDate="20170510"
-          maxDate="20180412"
-          startDate={this.state.startDate}
-          endDate={this.state.endDate}
+          minDate="20190510"
+          maxDate="20200412"
           onConfirm={this.confirmDate}
           />
       </View>
@@ -102,7 +100,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     borderRadius: 6,
     marginBottom: 30,
-    backgroundColor: '#138691'
+    backgroundColor: '#19AA90'
   },
   btnFont: {
     color: '#fff',

@@ -32,8 +32,8 @@ export default class Month extends Component {
       '七月', '八月', '九月', '十月', '十一月', '十二月'
     ],
     'en': [
-      'January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', 'September', 'October', 'November', 'December'
+      'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+      'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
     ]
   }
   _getMonthText () {
@@ -58,10 +58,10 @@ export default class Month extends Component {
     let dayList;
     let month = date.month();
     let weekday = date.isoWeekday();
-    if (weekday === 7) {
+    if (weekday === 1) {
       dayList = [];
     } else {
-      dayList = new Array(weekday).fill({
+      dayList = new Array(weekday - 1).fill({
         empty: date.clone().subtract(1, 'h')
       });
     }
@@ -74,11 +74,11 @@ export default class Month extends Component {
     date.subtract(1, 'days');
     weekday = date.isoWeekday();
     if (weekday === 7) {
-      return dayList.concat(new Array(6).fill({
+      return dayList.concat(new Array(7).fill({
         empty: date.clone().hour(1)
       }));
     }
-    return dayList.concat(new Array(Math.abs(weekday - 6)).fill({
+    return dayList.concat(new Array(7 - weekday).fill({
       empty: date.clone().hour(1)
     }));
   }
@@ -106,7 +106,7 @@ export default class Month extends Component {
       today,
       color
     } = this.props;
-    let subColor = {color: color.subColor};
+    let subColor = {color: 'rgba(0, 0, 0, 0.9)'};
     let titleText = this._getMonthText();
     let dayList = this._getDayList(month.clone());
     let rowArray = new Array(dayList.length / 7).fill('');
