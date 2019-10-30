@@ -2,6 +2,10 @@
 
 A date picker component like Airbnb. You can select a date period from the calendar modal.
 
+* Русифицировано
+* Понедельник начало недели
+* Кнопка снизу переверстана
+
 
 ### Examples
 
