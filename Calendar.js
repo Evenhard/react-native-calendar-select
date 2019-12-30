@@ -60,7 +60,7 @@ export default class Calendar extends Component {
                 'save': 'Выбрать',
                 'clear': 'Очистить'
             },
-            'date': 'DD / MM'
+            'date': 'DD.MM.YYYY'
         },
         'jp': {
             'w': ['', '月', '火', '水', '木', '金', '土', '日'],
@@ -284,6 +284,7 @@ export default class Calendar extends Component {
                             </Text>
                             <Text style={[styles.resultText, styles.endText, subFontColor]}>
                                 {endDateText || ''}
+                                {/*{endDateText.toString().replace(" / ", ".") || ''}*/}
                             </Text>
                         </View>
                     </View>
